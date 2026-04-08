@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Calendar, Clock, MapPin, Shirt, DollarSign, Hotel, Car } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, MapPin, Shirt, DollarSign, Hotel, Car, AlertCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import { getEventBySlug, getAttireForEvent, formatDate } from "@/data/siteData";
 
@@ -13,7 +13,7 @@ export default function EventDetailPage() {
       <Layout>
         <div className="container py-16 text-center">
           <h1 className="font-display text-2xl font-bold">Event not found</h1>
-          <Link to="/events" className="mt-4 inline-block text-gold hover:underline">
+          <Link to="/events" className="mt-4 inline-block text-sage hover:underline">
             ← Back to events
           </Link>
         </div>
@@ -33,10 +33,22 @@ export default function EventDetailPage() {
 
         <h1 className="mb-6 font-display text-3xl font-bold md:text-4xl">{event.name}</h1>
 
+        {/* Special Notes — prominent callouts */}
+        {event.specialNotes && event.specialNotes.length > 0 && (
+          <div className="mb-8 space-y-3">
+            {event.specialNotes.map((note, i) => (
+              <div key={i} className="flex items-start gap-3 rounded-xl border-2 border-sage/30 bg-sage-muted p-4">
+                <AlertCircle className="mt-0.5 h-5 w-5 text-sage flex-shrink-0" />
+                <p className="text-sm font-medium">{note}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Key Info */}
         <div className="mb-8 grid gap-4 md:grid-cols-2">
           <div className="flex items-start gap-3 rounded-xl border bg-card p-4">
-            <Calendar className="mt-0.5 h-5 w-5 text-gold" />
+            <Calendar className="mt-0.5 h-5 w-5 text-sage" />
             <div>
               <p className="text-sm text-muted-foreground">Date</p>
               <p className="font-semibold">{formatDate(event.date)}</p>
@@ -44,7 +56,7 @@ export default function EventDetailPage() {
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-xl border bg-card p-4">
-            <Clock className="mt-0.5 h-5 w-5 text-gold" />
+            <Clock className="mt-0.5 h-5 w-5 text-sage" />
             <div>
               <p className="text-sm text-muted-foreground">Time</p>
               <p className="font-semibold">{event.time}</p>
@@ -52,7 +64,7 @@ export default function EventDetailPage() {
             </div>
           </div>
           <div className="flex items-start gap-3 rounded-xl border bg-card p-4">
-            <MapPin className="mt-0.5 h-5 w-5 text-gold" />
+            <MapPin className="mt-0.5 h-5 w-5 text-sage" />
             <div>
               <p className="text-sm text-muted-foreground">Location</p>
               <p className="font-semibold">{event.locationName}</p>
@@ -62,9 +74,9 @@ export default function EventDetailPage() {
         </div>
 
         {/* What to Wear — PROMINENT */}
-        <div className="mb-8 rounded-xl border-2 border-gold/30 bg-gold-muted p-6">
+        <div className="mb-8 rounded-xl border-2 border-rose-accent/30 bg-rose-muted p-6">
           <div className="mb-3 flex items-center gap-2">
-            <Shirt className="h-5 w-5 text-gold" />
+            <Shirt className="h-5 w-5 text-rose-accent" />
             <h2 className="font-display text-xl font-bold">What to Wear</h2>
           </div>
           <p className="mb-3 text-lg font-semibold">{event.attire}</p>
@@ -75,7 +87,7 @@ export default function EventDetailPage() {
                 <ul className="space-y-1">
                   {attire.requiredItems.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm">
-                      <span className="h-1.5 w-1.5 rounded-full bg-gold" /> {item}
+                      <span className="h-1.5 w-1.5 rounded-full bg-sage" /> {item}
                     </li>
                   ))}
                 </ul>
@@ -113,7 +125,7 @@ export default function EventDetailPage() {
           {event.costNotes && (
             <div className="rounded-xl border bg-card p-4">
               <div className="mb-2 flex items-center gap-2">
-                <DollarSign className="h-4 w-4 text-gold" />
+                <DollarSign className="h-4 w-4 text-sage" />
                 <h3 className="font-semibold text-sm">Cost Notes</h3>
               </div>
               <p className="text-sm text-muted-foreground">{event.costNotes}</p>
@@ -122,7 +134,7 @@ export default function EventDetailPage() {
           {event.lodgingNotes && (
             <div className="rounded-xl border bg-card p-4">
               <div className="mb-2 flex items-center gap-2">
-                <Hotel className="h-4 w-4 text-gold" />
+                <Hotel className="h-4 w-4 text-sage" />
                 <h3 className="font-semibold text-sm">Lodging</h3>
               </div>
               <p className="text-sm text-muted-foreground">{event.lodgingNotes}</p>
@@ -131,7 +143,7 @@ export default function EventDetailPage() {
           {event.travelNotes && (
             <div className="rounded-xl border bg-card p-4">
               <div className="mb-2 flex items-center gap-2">
-                <Car className="h-4 w-4 text-gold" />
+                <Car className="h-4 w-4 text-sage" />
                 <h3 className="font-semibold text-sm">Travel</h3>
               </div>
               <p className="text-sm text-muted-foreground">{event.travelNotes}</p>
@@ -141,7 +153,7 @@ export default function EventDetailPage() {
 
         {event.sourceReference && (
           <p className="mt-6 text-xs text-muted-foreground">
-            Source: <a href={`https://${event.sourceReference}`} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">{event.sourceReference}</a>
+            Source: <a href={`https://${event.sourceReference}`} target="_blank" rel="noopener noreferrer" className="text-sage hover:underline">{event.sourceReference}</a>
           </p>
         )}
       </div>

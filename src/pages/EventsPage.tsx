@@ -37,7 +37,7 @@ export default function EventsPage() {
           return (
             <section key={type} className="mb-10">
               <h2 className="mb-4 flex items-center gap-2 font-display text-xl font-semibold">
-                <span className="h-1 w-6 rounded-full bg-gold inline-block" />
+                <span className="h-1 w-6 rounded-full bg-sage inline-block" />
                 {typeLabels[type] || type}
               </h2>
               <div className="grid gap-4 md:grid-cols-2">

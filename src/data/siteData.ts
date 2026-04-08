@@ -49,6 +49,7 @@ export interface WeddingEvent {
   lodgingNotes?: string;
   costNotes?: string;
   sourceReference?: string;
+  specialNotes?: string[]; // Prominent callouts displayed on event detail page
 }
 
 // ─── EVENTS ─────────────────────────────────────────────────
@@ -59,7 +60,7 @@ export const events: WeddingEvent[] = [
     slug: "bridal-bbq",
     eventType: "pre-wedding",
     date: "2026-05-24",
-    time: "TBD",
+    time: "5:00 PM",
     locationName: "Daniel and Tina's House",
     attire: "Casual",
     description:
@@ -84,8 +85,8 @@ export const events: WeddingEvent[] = [
     costNotes: "Expect $400–$700 total for hotel, flights, food, drinks, and activities.",
   },
   {
-    name: "Bridal Mehndi",
-    slug: "bridal-mehndi",
+    name: "Mehndi",
+    slug: "mehndi",
     eventType: "wedding-week",
     date: "2026-07-21",
     time: "10:00 AM",
@@ -97,31 +98,39 @@ export const events: WeddingEvent[] = [
     costNotes: "No direct cost for groomsmen.",
   },
   {
-    name: "Jaggo Ceremony",
-    slug: "jaggo-ceremony",
+    name: "Jaggo",
+    slug: "jaggo",
     eventType: "wedding-week",
     date: "2026-07-22",
     time: "6:30 PM",
     locationName: "Kent, WA",
-    attire: "Traditional / Semi-Formal",
+    attire: "Traditional — Provided by Daniel",
     description: "Energetic evening ceremony with music, dancing, and celebration leading up to the wedding.",
     sourceReference: "danielandtina2026.com",
     lodgingNotes: "Stay at the shared house or nearby hotel.",
     costNotes: "No direct cost for groomsmen.",
+    specialNotes: [
+      "Daniel will provide traditional outfits for all groomsmen for this event.",
+      "The provided traditional outfit is the expected attire — no need to buy or bring anything.",
+    ],
   },
   {
-    name: "Haldi & Choora",
-    slug: "haldi-choora",
+    name: "Haldi",
+    slug: "haldi",
     eventType: "wedding-week",
     date: "2026-07-23",
-    time: "Morning",
-    timeNotes: "Exact time TBD — expect a morning start.",
+    time: "11:00 AM",
     locationName: "Auburn, WA",
-    attire: "Casual — wear clothes you don't mind getting stained",
-    description: "Turmeric blessing ceremony followed by the Choora. Expect color, laughter, and mess.",
+    attire: "Casual — Jeans & T-shirt (Yellow Preferred)",
+    description: "Turmeric blessing ceremony. Expect color, laughter, and mess. Groomsmen are not involved in the Choora portion — this is Haldi only.",
     sourceReference: "danielandtina2026.com",
     lodgingNotes: "Stay at the shared house or nearby hotel.",
     costNotes: "No direct cost for groomsmen.",
+    specialNotes: [
+      "Wear jeans and a t-shirt — keep it casual but still look presentable.",
+      "Preferred color: yellow.",
+      "You will likely get turmeric on you, so wear clothes you don't mind staining.",
+    ],
   },
   {
     name: "Wedding Ceremony",
@@ -132,11 +141,17 @@ export const events: WeddingEvent[] = [
     timeNotes: "Groomsmen should arrive by 7:30 AM for preparation.",
     locationName: "Gurudwara Sacha Marg Sahib",
     address: "Auburn, WA",
-    attire: "Formal — Traditional Wedding Attire",
+    attire: "Formal — Rental Suit (Men's Wearhouse)",
     description: "The main event. Daniel and Tina's wedding ceremony at the Gurudwara.",
     sourceReference: "danielandtina2026.com",
     lodgingNotes: "Stay at the shared house or nearby hotel the night before.",
-    costNotes: "No direct cost. Gift is separate.",
+    costNotes: "Suit rental estimated $220–$240. Gift is separate.",
+    travelNotes: "Coordinate with Daniel for carpool to the Gurudwara.",
+    specialNotes: [
+      "Groomsmen will wear rental suits from Men's Wearhouse. Go in and say you're with Daniel's party to get measured and set up.",
+      "Preferred pickup location: Men's Wearhouse, 16971 Southcenter Pkwy, Tukwila, WA 98188. This location allows pickup that week and return the next day at the same store.",
+      "Head coverings are required at the Gurudwara — they will be provided. No need to bring your own.",
+    ],
   },
   {
     name: "Reception",
@@ -182,7 +197,7 @@ export const attireByEvent: AttireItem[] = [
     notes: "Pack for warm weather. Some venues may have dress codes for nightlife.",
   },
   {
-    eventSlug: "bridal-mehndi",
+    eventSlug: "mehndi",
     dressCode: "Smart Casual",
     outfitLabel: "Smart Casual",
     requiredItems: ["Button-down shirt or kurta", "Chinos or dress pants", "Clean shoes"],
@@ -190,29 +205,29 @@ export const attireByEvent: AttireItem[] = [
     notes: "Colorful attire is encouraged.",
   },
   {
-    eventSlug: "jaggo-ceremony",
-    dressCode: "Traditional / Semi-Formal",
-    outfitLabel: "Semi-Formal or Traditional",
-    requiredItems: ["Kurta or dress shirt", "Dress pants", "Dress shoes"],
-    optionalItems: ["Traditional accessories", "Pocket square"],
-    notes: "Traditional attire is welcome and appreciated.",
+    eventSlug: "jaggo",
+    dressCode: "Traditional — Provided by Daniel",
+    outfitLabel: "Traditional Outfit (Provided)",
+    requiredItems: ["Traditional outfit (provided by Daniel)"],
+    optionalItems: [],
+    notes: "Daniel will provide traditional outfits for all groomsmen. This is the expected attire for the Jaggo — no need to buy or bring anything.",
   },
   {
-    eventSlug: "haldi-choora",
-    dressCode: "Casual — Stain-Friendly",
-    outfitLabel: "Old Casual Clothes",
-    requiredItems: ["Old t-shirt or white shirt", "Shorts or old pants", "Sandals or old shoes"],
+    eventSlug: "haldi",
+    dressCode: "Casual — Yellow Preferred",
+    outfitLabel: "Jeans & T-shirt",
+    requiredItems: ["Jeans", "T-shirt (yellow preferred)", "Casual shoes or sandals"],
     optionalItems: [],
-    notes: "You WILL get turmeric on you. Wear clothes you don't mind staining yellow.",
+    notes: "Keep it casual but look nice and presentable. Yellow is preferred. You'll likely get turmeric on you — wear clothes you don't mind staining.",
   },
   {
     eventSlug: "wedding-ceremony",
-    dressCode: "Formal — Traditional",
-    outfitLabel: "Wedding Formal",
-    requiredItems: ["Groomsman outfit (coordinated)", "Dress shoes", "Turban/pagri if provided"],
+    dressCode: "Formal — Rental Suit",
+    outfitLabel: "Rental Suit (Men's Wearhouse)",
+    requiredItems: ["Rental suit from Men's Wearhouse", "Dress shoes", "Head covering (provided at Gurudwara)"],
     optionalItems: ["Cufflinks", "Watch"],
-    buyOrRent: "Coordinated by Daniel — details TBD",
-    notes: "Daniel will coordinate groomsman attire. Stay tuned for specifics.",
+    buyOrRent: "Rent from Men's Wearhouse — tell them you're with Daniel's party",
+    notes: "Go to Men's Wearhouse to get measured. Preferred pickup: Men's Wearhouse, 16971 Southcenter Pkwy, Tukwila, WA 98188 (pickup that week, return next day at same location). Estimated rental: $220–$240. Head coverings will be provided at the Gurudwara.",
   },
   {
     eventSlug: "reception",
@@ -221,7 +236,7 @@ export const attireByEvent: AttireItem[] = [
     requiredItems: ["Suit or tuxedo", "Dress shirt", "Tie or bow tie", "Dress shoes", "Belt"],
     optionalItems: ["Pocket square", "Cufflinks", "Watch"],
     buyOrRent: "Rent or own",
-    notes: "Classic formal. Dark suit or tuxedo recommended.",
+    notes: "Formal — Suit or Tuxedo. Classic formal. Dark suit or tuxedo recommended.",
   },
 ];
 
@@ -238,12 +253,12 @@ export interface CostItem {
 
 export const costs: CostItem[] = [
   // Attire
-  { category: "attire", itemName: "Tux or Suit Rental", estimatedCost: 200, lowRange: 150, highRange: 300, notes: "For reception. Rent or use your own.", relatedEventSlug: "reception" },
+  { category: "attire", itemName: "Wedding Ceremony Suit Rental (Men's Wearhouse)", estimatedCost: 230, lowRange: 220, highRange: 240, notes: "Rental suit for Friday ceremony. Go to Men's Wearhouse (Tukwila, WA preferred) and say you're with Daniel's party.", relatedEventSlug: "wedding-ceremony" },
+  { category: "attire", itemName: "Tux or Suit (Reception)", estimatedCost: 200, lowRange: 150, highRange: 300, notes: "For Saturday reception. Rent or use your own.", relatedEventSlug: "reception" },
   { category: "attire", itemName: "Dress Shirt", estimatedCost: 50, lowRange: 30, highRange: 80, notes: "White or coordinated color." },
   { category: "attire", itemName: "Dress Shoes", estimatedCost: 80, lowRange: 50, highRange: 150, notes: "Black or dark brown. Can reuse." },
   { category: "attire", itemName: "Tie / Bow Tie", estimatedCost: 25, lowRange: 15, highRange: 50 },
   { category: "attire", itemName: "Accessories (belt, socks, pocket square)", estimatedCost: 40, lowRange: 20, highRange: 60 },
-  { category: "attire", itemName: "Traditional Outfit (if needed)", estimatedCost: 75, lowRange: 50, highRange: 150, notes: "For Jaggo or Mehndi. May be coordinated.", relatedEventSlug: "jaggo-ceremony" },
 
   // Bachelor Party
   { category: "bachelor-party", itemName: "Hotel (2 nights)", estimatedCost: 200, lowRange: 150, highRange: 300, notes: "Treasure Island — split room cost.", relatedEventSlug: "bachelor-party" },
@@ -273,6 +288,7 @@ export interface LodgingOption {
   totalEstimatedCost?: number;
   notes?: string;
   bookingLink?: string;
+  address?: string;
 }
 
 export const lodging: LodgingOption[] = [
@@ -294,13 +310,14 @@ export const lodging: LodgingOption[] = [
     notes: "Check with Daniel for availability. First come, first served.",
   },
   {
-    name: "Shared House 1",
+    name: "Guest House",
     lodgingType: "shared-house",
     location: "Auburn/Kent, WA area",
-    description: "Rented house for groomsmen during wedding week. Split cost among the group.",
+    address: "29108 144th Ave SE, Auburn, WA",
+    description: "Guest house for groomsmen during wedding week.",
     estimatedCostPerNight: 30,
     totalEstimatedCost: 150,
-    notes: "5 nights (Mon–Sat). ~$30/night per person depending on group size.",
+    notes: "Note: Daniel and Tina will not be staying at the guest house Friday night through Saturday night — they'll be at a hotel.",
   },
   {
     name: "Shared House 2",
@@ -309,7 +326,7 @@ export const lodging: LodgingOption[] = [
     description: "Overflow house if more space is needed.",
     estimatedCostPerNight: 30,
     totalEstimatedCost: 150,
-    notes: "Backup option. Same pricing structure as Shared House 1.",
+    notes: "Backup option. Same pricing structure as the guest house.",
   },
   {
     name: "Family Stay",
@@ -358,6 +375,12 @@ export const travelNotes: TravelNote[] = [
     title: "Reception Venue — Lakewood, WA",
     content: "About 30 minutes from Auburn. Plan transportation in advance — there will likely be a group shuttle or carpool.",
     relatedEventSlug: "reception",
+  },
+  {
+    title: "Men's Wearhouse — Suit Pickup",
+    content: "Go to Men's Wearhouse at 16971 Southcenter Pkwy, Tukwila, WA 98188 to get measured and set up your rental suit for the Friday wedding ceremony. This location allows same-week pickup and next-day return at the same store.",
+    mapLink: "https://maps.google.com/?q=16971+Southcenter+Pkwy+Tukwila+WA+98188",
+    relatedEventSlug: "wedding-ceremony",
   },
   {
     title: "Getting Around During Wedding Week",

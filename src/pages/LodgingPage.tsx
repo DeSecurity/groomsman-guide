@@ -23,7 +23,7 @@ export default function LodgingPage() {
             <div key={option.name} className="rounded-xl border bg-card p-5">
               <div className="mb-3 flex items-start justify-between">
                 <div className="flex items-center gap-2">
-                  <Hotel className="h-5 w-5 text-gold" />
+                  <Hotel className="h-5 w-5 text-sage" />
                   <h3 className="font-display text-lg font-semibold">{option.name}</h3>
                 </div>
                 <span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium">
@@ -31,7 +31,10 @@ export default function LodgingPage() {
                 </span>
               </div>
 
-              <p className="mb-2 text-sm text-muted-foreground">{option.location}</p>
+              <p className="mb-1 text-sm text-muted-foreground">{option.location}</p>
+              {option.address && (
+                <p className="mb-1 text-sm font-medium">{option.address}</p>
+              )}
               <p className="mb-3 text-sm">{option.description}</p>
 
               {(option.estimatedCostPerNight || option.totalEstimatedCost) && (
@@ -60,7 +63,7 @@ export default function LodgingPage() {
                   href={option.bookingLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-gold hover:underline"
+                  className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-sage hover:underline"
                 >
                   Book / View <ExternalLink className="h-3 w-3" />
                 </a>

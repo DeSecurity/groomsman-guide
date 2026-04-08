@@ -8,7 +8,7 @@ export default function BachelorPartyPage() {
       <div className="container py-8">
         <div className="mb-8">
           <div className="mb-2 flex items-center gap-2">
-            <PartyPopper className="h-6 w-6 text-gold" />
+            <PartyPopper className="h-6 w-6 text-sage" />
             <h1 className="font-display text-3xl font-bold md:text-4xl">Bachelor Party</h1>
           </div>
           <p className="text-lg text-muted-foreground">Las Vegas · {bachelorParty.dates}</p>
@@ -17,29 +17,29 @@ export default function BachelorPartyPage() {
         {/* Key Info */}
         <div className="mb-8 grid grid-cols-2 gap-3 md:grid-cols-4">
           <div className="rounded-xl border bg-card p-4">
-            <Calendar className="mb-2 h-5 w-5 text-gold" />
+            <Calendar className="mb-2 h-5 w-5 text-sage" />
             <p className="text-xs text-muted-foreground">Dates</p>
             <p className="font-semibold text-sm">{bachelorParty.dates}</p>
           </div>
           <div className="rounded-xl border bg-card p-4">
-            <Hotel className="mb-2 h-5 w-5 text-gold" />
+            <Hotel className="mb-2 h-5 w-5 text-sage" />
             <p className="text-xs text-muted-foreground">Hotel</p>
             <p className="font-semibold text-sm">{bachelorParty.hotel}</p>
           </div>
           <div className="rounded-xl border bg-card p-4">
-            <DollarSign className="mb-2 h-5 w-5 text-gold" />
+            <DollarSign className="mb-2 h-5 w-5 text-sage" />
             <p className="text-xs text-muted-foreground">Est. Total</p>
             <p className="font-semibold text-sm">{bachelorParty.estimatedTotalCost}</p>
           </div>
           <div className="rounded-xl border bg-card p-4">
-            <MapPin className="mb-2 h-5 w-5 text-gold" />
+            <MapPin className="mb-2 h-5 w-5 text-sage" />
             <p className="text-xs text-muted-foreground">Location</p>
             <p className="font-semibold text-sm">Las Vegas Strip</p>
           </div>
         </div>
 
         {/* Arrival / Departure */}
-        <div className="mb-8 rounded-xl border-2 border-gold/30 bg-gold-muted p-5">
+        <div className="mb-8 rounded-xl border-2 border-sage/30 bg-sage-muted p-5">
           <h2 className="mb-3 font-display text-lg font-bold">Arrival & Departure</h2>
           <p className="text-sm mb-1"><strong>Arrive:</strong> {bachelorParty.arrivalNote}</p>
           <p className="text-sm"><strong>Depart:</strong> {bachelorParty.departureNote}</p>
@@ -81,7 +81,7 @@ export default function BachelorPartyPage() {
           <h2 className="mb-4 font-display text-xl font-semibold">Flights & Travel</h2>
           <div className="rounded-xl border bg-card p-5">
             <div className="flex items-center gap-2 mb-2">
-              <Plane className="h-5 w-5 text-gold" />
+              <Plane className="h-5 w-5 text-sage" />
               <h3 className="font-semibold">Flight Info</h3>
             </div>
             <p className="text-sm text-muted-foreground">{bachelorParty.flightGuidance}</p>
@@ -94,7 +94,7 @@ export default function BachelorPartyPage() {
           <h2 className="mb-4 font-display text-xl font-semibold">What to Pack</h2>
           <div className="rounded-xl border bg-card p-5">
             <div className="flex items-center gap-2 mb-2">
-              <Shirt className="h-5 w-5 text-gold" />
+              <Shirt className="h-5 w-5 text-sage" />
               <h3 className="font-semibold">Attire Notes</h3>
             </div>
             <p className="text-sm text-muted-foreground">{bachelorParty.attireNotes}</p>
