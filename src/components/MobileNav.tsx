@@ -22,7 +22,7 @@ export default function MobileNav() {
               key={to}
               to={to}
               className={`flex flex-col items-center gap-0.5 px-3 py-1 text-xs transition-colors ${
-                isActive ? "text-gold font-semibold" : "text-muted-foreground"
+                isActive ? "text-sage font-semibold" : "text-muted-foreground"
               }`}
             >
               <Icon className="h-5 w-5" />

@@ -30,9 +30,9 @@ export default function CostsPage() {
         </p>
 
         {/* Total & Summary */}
-        <div className="mb-8 rounded-xl border-2 border-gold/30 bg-gold-muted p-6">
+        <div className="mb-8 rounded-xl border-2 border-sage/30 bg-sage-muted p-6">
           <div className="mb-4 flex items-center gap-2">
-            <DollarSign className="h-6 w-6 text-gold" />
+            <DollarSign className="h-6 w-6 text-sage" />
             <h2 className="font-display text-2xl font-bold">~${total.toLocaleString()}</h2>
             <span className="text-muted-foreground text-sm">estimated total</span>
           </div>
@@ -53,7 +53,7 @@ export default function CostsPage() {
           return (
             <section key={cat} className="mb-8">
               <h2 className="mb-4 flex items-center gap-2 font-display text-xl font-semibold">
-                <span className="h-1 w-6 rounded-full bg-gold inline-block" />
+                <span className="h-1 w-6 rounded-full bg-sage inline-block" />
                 {categoryLabels[cat]}
                 <span className="text-sm font-normal text-muted-foreground">
                   — ${getCategorySubtotal(cat)}

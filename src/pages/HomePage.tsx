@@ -59,7 +59,7 @@ export default function HomePage() {
             href={couple.weddingWebsite}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-gold hover:underline"
+            className="text-xs text-sage hover:underline"
           >
             Wedding Site →
           </a>
@@ -70,9 +70,9 @@ export default function HomePage() {
             <Link
               key={card.title}
               to={card.to}
-              className="group flex flex-col items-start gap-3 rounded-xl border bg-card p-4 transition-all hover:border-gold/50 hover:shadow-md"
+              className="group flex flex-col items-start gap-3 rounded-xl border bg-card p-4 transition-all hover:border-sage/50 hover:shadow-md"
             >
-              <card.icon className="h-6 w-6 text-gold" />
+              <card.icon className="h-6 w-6 text-sage" />
               <div>
                 <h3 className="font-semibold text-sm">{card.title}</h3>
                 <p className="text-xs text-muted-foreground">{card.subtitle}</p>
@@ -90,7 +90,7 @@ export default function HomePage() {
           </h2>
           <Link
             to="/events"
-            className="flex items-center gap-1 text-sm font-medium text-gold hover:underline"
+            className="flex items-center gap-1 text-sm font-medium text-sage hover:underline"
           >
             View All <ArrowRight className="h-3.5 w-3.5" />
           </Link>

@@ -34,8 +34,8 @@ export default function AttirePage() {
                         {formatDate(event.date).replace(/,\s\d{4}/, "")}
                       </td>
                       <td className="py-3 pr-4">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-gold-muted px-2.5 py-0.5 text-xs font-medium">
-                          <Shirt className="h-3 w-3 text-gold" />
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-sage-muted px-2.5 py-0.5 text-xs font-medium">
+                          <Shirt className="h-3 w-3 text-sage" />
                           {event.attire}
                         </span>
                       </td>
@@ -62,12 +62,12 @@ export default function AttirePage() {
                     <h3 className="font-display text-lg font-semibold">
                       {event?.name || attire.eventSlug}
                     </h3>
-                    <span className="rounded-full bg-gold-muted px-3 py-0.5 text-xs font-medium">
+                    <span className="rounded-full bg-sage-muted px-3 py-0.5 text-xs font-medium">
                       {attire.dressCode}
                     </span>
                   </div>
 
-                  <p className="mb-3 text-sm font-medium text-gold">{attire.outfitLabel}</p>
+                  <p className="mb-3 text-sm font-medium text-sage">{attire.outfitLabel}</p>
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <div>
@@ -75,7 +75,7 @@ export default function AttirePage() {
                       <ul className="space-y-1">
                         {attire.requiredItems.map((item) => (
                           <li key={item} className="flex items-center gap-2 text-sm">
-                            <span className="h-1.5 w-1.5 rounded-full bg-gold" /> {item}
+                            <span className="h-1.5 w-1.5 rounded-full bg-sage" /> {item}
                           </li>
                         ))}
                       </ul>
